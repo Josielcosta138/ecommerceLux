@@ -2,6 +2,7 @@ package br.com.ecommerceLux.controllers;
 
 import br.com.ecommerceLux.useCases.ProdutoService;
 import br.com.ecommerceLux.useCases.produto.domains.ProdutoResponseDom;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +15,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/ecommerce/produtos")
 public class ProdutoController {
+    @Autowired
     private ProdutoService produtoService;
     @GetMapping("/carregar")
     public ResponseEntity<List<ProdutoResponseDom>> carregarProdutos() {
