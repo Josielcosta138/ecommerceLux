@@ -1,8 +1,8 @@
 package br.com.ecommerceLux.entitys;
 
 public enum Categoria {
-//teste branch
-    CALÇAS,
+
+    CALCAS,
     CAMISAS,
     JAQUETAS,
     ACESSORIOS
