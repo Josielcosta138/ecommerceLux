@@ -1,4 +1,4 @@
-package br.com.ecommerceLux.controllers;
+    package br.com.ecommerceLux.controllers;
 
 import br.com.ecommerceLux.useCases.ClienteService;
 import br.com.ecommerceLux.useCases.clientes.domains.ClientesResponseDom;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/Ecommerce/Clientes")
+@RequestMapping("/ecommerce/clientes")
 public class ClienteController {
 
     @Autowired

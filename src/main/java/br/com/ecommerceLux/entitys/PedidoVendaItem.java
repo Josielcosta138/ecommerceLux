@@ -12,8 +12,8 @@ public class PedidoVendaItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "pedidoVendaItem")
-    List<PedidoVenda> pedidoVendas;
+    @OneToOne(mappedBy = "pedidoVendaItem")
+    PedidoVenda pedidoVenda;
 
     @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false)
@@ -34,12 +34,12 @@ public class PedidoVendaItem {
         this.id = id;
     }
 
-    public List<PedidoVenda> getPedidoVendas() {
-        return pedidoVendas;
+    public PedidoVenda getPedidoVenda() {
+        return pedidoVenda;
     }
 
-    public void setPedidoVendas(List<PedidoVenda> pedidoVendas) {
-        this.pedidoVendas = pedidoVendas;
+    public void setPedidoVenda(PedidoVenda pedidoVenda) {
+        this.pedidoVenda = pedidoVenda;
     }
 
     public Produto getProduto() {

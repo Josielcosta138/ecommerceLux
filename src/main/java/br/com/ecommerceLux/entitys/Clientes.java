@@ -24,7 +24,7 @@ public class Clientes {
     private String documento;
 
     @OneToMany(mappedBy = "clientes")
-   List<Endereco> enderecos;
+    List<Endereco> enderecos;
 
     @OneToMany(mappedBy = "clientes")
     List<PedidoVenda> pedidoVendas;
