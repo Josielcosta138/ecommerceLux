@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class PedidoVenda {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,28 +26,50 @@ public class PedidoVenda {
     @JoinColumn(name = "clientes_id", nullable = false)
     private Clientes clientes;
 
-    @OneToMany(mappedBy = "pedidoVenda")
-    List<Pagamento> pagamentos;
+    @OneToOne
+    @JoinColumn(name = "endereco_id", nullable = false)
+    private Endereco endereco;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "pedido_venda_item_id", nullable = false)
     private PedidoVendaItem pedidoVendaItem;
 
+    @OneToOne
+    @JoinColumn(name = "forma_pagto_id", nullable = false)
+    private FormaPagamento formaPagamento;
 
-    public List<Pagamento> getPagamentos() {
-        return pagamentos;
+    @OneToOne(mappedBy = "pedidoVenda")
+    Boleto boleto;
+
+    @OneToOne(mappedBy = "pedidoVenda")
+    Pix pix;
+
+    @OneToOne(mappedBy = "pedidoVenda")
+    Cartao cartao;
+
+
+    public Pix getPix() {
+        return pix;
     }
 
-    public void setPagamentos(List<Pagamento> pagamentos) {
-        this.pagamentos = pagamentos;
+    public void setPix(Pix pix) {
+        this.pix = pix;
     }
 
-    public PedidoVendaItem getPedidoVendaItem() {
-        return pedidoVendaItem;
+    public Cartao getCartao() {
+        return cartao;
     }
 
-    public void setPedidoVendaItem(PedidoVendaItem pedidoVendaItem) {
-        this.pedidoVendaItem = pedidoVendaItem;
+    public void setCartao(Cartao cartao) {
+        this.cartao = cartao;
+    }
+
+    public Boleto getBoleto() {
+        return boleto;
+    }
+
+    public void setBoleto(Boleto boleto) {
+        this.boleto = boleto;
     }
 
     public Long getId() {
@@ -90,4 +111,29 @@ public class PedidoVenda {
     public void setClientes(Clientes clientes) {
         this.clientes = clientes;
     }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public PedidoVendaItem getPedidoVendaItem() {
+        return pedidoVendaItem;
+    }
+
+    public void setPedidoVendaItem(PedidoVendaItem pedidoVendaItem) {
+        this.pedidoVendaItem = pedidoVendaItem;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
 }

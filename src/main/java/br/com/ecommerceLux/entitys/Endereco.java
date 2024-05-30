@@ -22,7 +22,6 @@ public class Endereco {
     private Clientes clientes;
 
 
-
     public Long getId() {
         return id;
     }

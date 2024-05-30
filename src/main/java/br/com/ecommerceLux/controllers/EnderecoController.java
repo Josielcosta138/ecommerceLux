@@ -16,7 +16,7 @@ import java.util.List;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/Ecommerce/Enderecos")
+@RequestMapping("/ecommerce/enderecos")
 public class EnderecoController {
 
     @Autowired
