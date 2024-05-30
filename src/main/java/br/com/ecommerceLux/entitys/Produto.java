@@ -1,5 +1,6 @@
 package br.com.ecommerceLux.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
@@ -28,6 +29,17 @@ public class Produto {
 
     @OneToMany(mappedBy = "produto")
     private List<ProdutoEstoque> produtoEstoques;
+
+
+
+    @JsonIgnore
+    public List<ProdutoEstoque> getProdutoEstoques() {
+        return produtoEstoques;
+    }
+
+    public void setProdutoEstoques(List<ProdutoEstoque> produtoEstoques) {
+        this.produtoEstoques = produtoEstoques;
+    }
 
     public Long getId() {
         return id;
