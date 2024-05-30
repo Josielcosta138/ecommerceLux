@@ -5,6 +5,7 @@ import br.com.ecommerceLux.entitys.PedidoVendaItem;
 import br.com.ecommerceLux.entitys.ProdutoEstoque;
 
 import java.util.List;
+import java.util.Map;
 
 public class ProdutoResponseDom {
 
@@ -62,4 +63,5 @@ public class ProdutoResponseDom {
     public void setProdutoEstoques(List<ProdutoEstoque> produtoEstoques) {
         this.produtoEstoques = produtoEstoques;
     }
+
 }

@@ -89,6 +89,7 @@ public class EnderecoService {
         if (!mensagens.isEmpty()){
             throw new CrudException(mensagens);
         }
+
         Optional<Clientes> resultadoIdClientePostman = clientesRepository.findById(endereco.getIdCliente());
 
         List<Endereco> listaEnderecos = enderecoRepository.findByClientesId(endereco.getIdCliente());
