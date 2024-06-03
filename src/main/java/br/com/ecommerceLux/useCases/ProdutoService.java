@@ -1,10 +1,10 @@
 package br.com.ecommerceLux.useCases;
 
+import br.com.ecommerceLux.entitys.Categoria;
 import br.com.ecommerceLux.entitys.Produto;
 import br.com.ecommerceLux.entitys.ProdutoEstoque;
 import br.com.ecommerceLux.repositorys.ProdutoEstoqueRepository;
 import br.com.ecommerceLux.repositorys.ProdutoRepository;
-import br.com.ecommerceLux.useCases.categoria.domains.Categoria;
 import br.com.ecommerceLux.useCases.endereco.domains.EnderecoRequestDom;
 import br.com.ecommerceLux.useCases.produto.domains.ProdutoRequestDom;
 import br.com.ecommerceLux.useCases.produto.domains.ProdutoResponseDom;
@@ -40,6 +40,27 @@ public class ProdutoService {
         }
         return produtosDom;
     }
+
+
+public List<ProdutoResponseDom> carregarProdutosCategoria() {
+
+    List<Produto> listaDeProdutos = produtoRepository.findAll();
+    List<ProdutoResponseDom> produtosDom = new ArrayList<>();
+
+    for (Produto resultadoProdDom : listaDeProdutos){
+
+        if (resultadoProdDom.getCategoria().equals(Categoria.ACESSORIOS)){
+            ProdutoResponseDom aux = new ProdutoResponseDom();
+            aux.setId(resultadoProdDom.getId());
+            aux.setNome(resultadoProdDom.getNome());
+            aux.setPreco(resultadoProdDom.getPreco());
+            aux.setCategoria(resultadoProdDom.getCategoria());
+            produtosDom.add(aux);
+        }
+
+    }
+    return produtosDom;
+}
 
 
     public ProdutoResponseDom carregarProdutosById(Long id) {

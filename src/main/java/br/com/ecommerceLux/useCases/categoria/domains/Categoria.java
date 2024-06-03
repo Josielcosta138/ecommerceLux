@@ -7,5 +7,4 @@ public enum Categoria {
     JAQUETAS,
     ACESSORIOS;
 
-
 }

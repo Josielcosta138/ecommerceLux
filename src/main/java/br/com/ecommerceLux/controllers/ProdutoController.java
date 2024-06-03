@@ -37,6 +37,25 @@ public class ProdutoController {
     }
 
 
+    @GetMapping("/carregar/categoriacombo")
+    public ResponseEntity<List<ProdutoResponseDom>> carregarProdutosCategoria() {
+
+        try {
+            List<ProdutoResponseDom> response = produtoService.carregarProdutosCategoria();
+
+            int status = 200;
+            if (response.isEmpty()) {
+                status = 204;
+            }
+            return ResponseEntity.status(status).body(response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(null);
+        }
+    }
+
+
     @GetMapping("/carregar/{id}")
     public ResponseEntity<ProdutoResponseDom> carregarProdutosPorId(@PathVariable Long id){
         try {
@@ -51,6 +70,7 @@ public class ProdutoController {
             return ResponseEntity.badRequest().body(null);
         }
     }
+
 
 
     @CrossOrigin

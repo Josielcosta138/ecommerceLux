@@ -28,18 +28,19 @@ public class EnderecoService {
 
         List<EnderecoResponseDom> listaDeEnderecos = new ArrayList<>();
 
-        for (Endereco dadoResultado: resultadoDeEnderecosPostamn) {
+            for (Endereco dadoResultado: resultadoDeEnderecosPostamn) {
 
-            EnderecoResponseDom aux = new EnderecoResponseDom();
-            aux.setId(dadoResultado.getId());
-            aux.setRua(dadoResultado.getRua());
-            aux.setBairro(dadoResultado.getBairro());
-            aux.setCidade(dadoResultado.getCidade());
-            aux.setEstado(dadoResultado.getEstado());
-            aux.setClientes_id(dadoResultado.getClientes());
+                EnderecoResponseDom aux = new EnderecoResponseDom();
+                aux.setId(dadoResultado.getId());
+                aux.setRua(dadoResultado.getRua());
+                aux.setBairro(dadoResultado.getBairro());
+                aux.setCidade(dadoResultado.getCidade());
+                aux.setEstado(dadoResultado.getEstado());
+                aux.setClientes_id(dadoResultado.getClientes());
 
-            listaDeEnderecos.add(aux);
-        }
+                listaDeEnderecos.add(aux);
+            }
+
         return listaDeEnderecos;
     }
 
@@ -50,16 +51,17 @@ public class EnderecoService {
         List<EnderecoResponseDom> listaDeEnderecos = new ArrayList<>();
 
         for (Endereco dadoResultado: resultadoDeEnderecosPostamn) {
-            EnderecoResponseDom aux = new EnderecoResponseDom();
-            aux.setId(dadoResultado.getId());
-            aux.setRua(dadoResultado.getRua());
-            aux.setBairro(dadoResultado.getBairro());
-            aux.setCidade(dadoResultado.getCidade());
-            aux.setEstado(dadoResultado.getEstado());
-            aux.setClientes_id(dadoResultado.getClientes());
 
-            listaDeEnderecos.add(aux);
-        }
+                EnderecoResponseDom aux = new EnderecoResponseDom();
+                aux.setId(dadoResultado.getId());
+                aux.setRua(dadoResultado.getRua());
+                aux.setBairro(dadoResultado.getBairro());
+                aux.setCidade(dadoResultado.getCidade());
+                aux.setEstado(dadoResultado.getEstado());
+                aux.setClientes_id(dadoResultado.getClientes());
+
+                listaDeEnderecos.add(aux);
+            }
         return listaDeEnderecos;
     }
 
@@ -106,6 +108,7 @@ public class EnderecoService {
             enderecosEntidades.setCidade(endereco.getCidade());
             enderecosEntidades.setEstado(endereco.getEstado());
             enderecosEntidades.setClientes(resultadoIdClientePostman.get());
+
             Endereco resultado = enderecoRepository.save(enderecosEntidades);
 
             EnderecoResponseDom responseDOM = new EnderecoResponseDom();
