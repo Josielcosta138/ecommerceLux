@@ -12,6 +12,7 @@ public class ProdutoRequestDom {
     private List<PedidoVendaItem> pedidoVendaItens;
     private List<ProdutoEstoque> produtoEstoques;
 
+
     public String getNome() {
         return nome;
     }

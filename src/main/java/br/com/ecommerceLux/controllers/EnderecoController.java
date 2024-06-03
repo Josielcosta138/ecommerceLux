@@ -32,37 +32,50 @@ public class EnderecoController {
             if (response.isEmpty()){
                 status = 204;
             }
-            return ResponseEntity.status(status).body(response);
+            return ResponseEntity
+                        .status(status)
+                        .body(response);
         }
         catch (Exception e){
             e.printStackTrace();
-            return ResponseEntity.badRequest().body(null);
+            return ResponseEntity
+                        .badRequest()
+                        .body(null);
         }
     }
 
     @GetMapping("/carregar/{id}")
     public ResponseEntity<EnderecoResponseDom> carregarEnderecosById(@PathVariable Long id){
+
         try {
             EnderecoResponseDom responseDOM = enderecoService.carregarEnderecosById(id);
+
             if (responseDOM != null){
                 return ResponseEntity.ok(responseDOM);
             }
-            return ResponseEntity.status(204).body(null);
+            return ResponseEntity
+                        .status(204)
+                        .body(null);
         }
         catch (Exception e){
             e.printStackTrace();
-            return ResponseEntity.badRequest().body(null);
+
+            return ResponseEntity
+                        .badRequest()
+                        .body(null);
         }
     }
 
     @GetMapping("/carregaEnderecosIdCliente/{id}")
     public ResponseEntity<List<EnderecoResponseDom>> carregarEnderecosByIdCliente(@PathVariable Long id){
+
         try {
             List<EnderecoResponseDom> responseDOM = enderecoService.carregarEnderecosByIdCliente(id);
             int status = 200;
-            if (responseDOM.isEmpty()){
-                status = 204;
-            }
+
+                if (responseDOM.isEmpty()){
+                    status = 204;
+                }
             return ResponseEntity.status(status).body(responseDOM);
         }
         catch (Exception e){

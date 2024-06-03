@@ -31,7 +31,6 @@ public class Produto {
     private List<ProdutoEstoque> produtoEstoques;
 
 
-
     @JsonIgnore
     public List<ProdutoEstoque> getProdutoEstoques() {
         return produtoEstoques;

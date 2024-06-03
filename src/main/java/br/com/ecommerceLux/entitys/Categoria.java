@@ -6,5 +6,5 @@ public enum Categoria {
     CAMISAS,
     JAQUETAS,
     ACESSORIOS
-
 }
+  //
